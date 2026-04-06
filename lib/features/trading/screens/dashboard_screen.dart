@@ -3,6 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/metric_tile.dart';
+<<<<<<< ours
+=======
+import '../../market/models/chart_timeframe.dart';
+>>>>>>> theirs
 import '../../market/providers/market_providers.dart';
 import '../models/trading_pair.dart';
 import '../presentation/widgets/candle_chart.dart';
@@ -18,6 +22,11 @@ class DashboardScreen extends ConsumerWidget {
     final pair = ref.watch(selectedPairProvider);
     final ticker = ref.watch(tickerStreamProvider).value ?? pair.basePrice;
     final candles = ref.watch(candleProvider);
+<<<<<<< ours
+=======
+    final timeframe = ref.watch(selectedTimeframeProvider);
+    final lines = ref.watch(chartLinesProvider);
+>>>>>>> theirs
     final balance = ref.watch(balanceProvider);
 
     return SingleChildScrollView(
@@ -29,7 +38,11 @@ class DashboardScreen extends ConsumerWidget {
                 child: DropdownButtonFormField<TradingPair>(
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
                   value: pair,
+=======
+                  initialValue: pair,
+>>>>>>> theirs
 =======
                   initialValue: pair,
 >>>>>>> theirs
@@ -74,7 +87,47 @@ class DashboardScreen extends ConsumerWidget {
                   child: Text('Spread ${pair.spread.toStringAsFixed(2)}', style: const TextStyle(color: AppColors.textSecondary)),
                 ),
                 const SizedBox(height: 12),
+<<<<<<< ours
                 SizedBox(height: 260, child: CandleChart(candles: candles)),
+=======
+                SizedBox(
+                  height: 36,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: ChartTimeframe.values.length,
+                    separatorBuilder: (_, __) => const SizedBox(width: 8),
+                    itemBuilder: (context, index) {
+                      final item = ChartTimeframe.values[index];
+                      final selected = item == timeframe;
+                      return ChoiceChip(
+                        selected: selected,
+                        label: Text(item.label),
+                        onSelected: (_) {
+                          ref.read(selectedTimeframeProvider.notifier).state = item;
+                        },
+                        selectedColor: AppColors.info.withValues(alpha: 0.25),
+                        side: BorderSide(
+                          color: selected ? AppColors.info : Colors.white24,
+                        ),
+                        labelStyle: TextStyle(
+                          color: selected ? Colors.white : AppColors.textSecondary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 260,
+                  child: CandleChart(
+                    candles: candles,
+                    lines: lines,
+                    onAddLine: (price) => ref.read(chartLinesProvider.notifier).add(price),
+                    onMoveLine: (index, price) => ref.read(chartLinesProvider.notifier).updateAt(index, price),
+                  ),
+                ),
+>>>>>>> theirs
               ],
             ),
           ),

@@ -8,6 +8,23 @@ final riskCalculatorProvider = Provider((ref) => const RiskCalculator());
 final balanceProvider = StateProvider<double>((ref) => 10000);
 final isLiveModeProvider = StateProvider<bool>((ref) => false);
 
+<<<<<<< ours
+=======
+class ChartLineNotifier extends Notifier<List<double>> {
+  @override
+  List<double> build() => [];
+
+  void add(double price) => state = [...state, price];
+
+  void updateAt(int index, double price) {
+    if (index < 0 || index >= state.length) return;
+    final next = [...state];
+    next[index] = price;
+    state = next;
+  }
+}
+
+>>>>>>> theirs
 class PositionNotifier extends Notifier<List<Position>> {
   @override
   List<Position> build() => [];
@@ -36,3 +53,7 @@ class PositionNotifier extends Notifier<List<Position>> {
 }
 
 final positionProvider = NotifierProvider<PositionNotifier, List<Position>>(PositionNotifier.new);
+<<<<<<< ours
+=======
+final chartLinesProvider = NotifierProvider<ChartLineNotifier, List<double>>(ChartLineNotifier.new);
+>>>>>>> theirs

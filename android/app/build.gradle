@@ -1,3 +1,4 @@
+<<<<<<< ours
 plugins {
 <<<<<<< ours
     id 'com.android.application'
@@ -22,6 +23,45 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+=======
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    namespace 'com.example.trading_app'
+    compileSdkVersion flutter.compileSdkVersion
+
+    defaultConfig {
+        applicationId 'com.example.trading_app'
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+>>>>>>> theirs
     }
 
     compileOptions {
@@ -32,6 +72,7 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+<<<<<<< ours
 }
 
 dependencies {
@@ -68,11 +109,21 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
+=======
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+>>>>>>> theirs
         }
     }
 }
 
 flutter {
+<<<<<<< ours
     source = "../.."
+>>>>>>> theirs
+=======
+    source '../..'
 >>>>>>> theirs
 }
