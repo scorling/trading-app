@@ -16,7 +16,11 @@ class RiskCalculator {
     final safeDistance = stopDistance <= 0 ? 0.0000001 : stopDistance;
     final positionSize = riskAmount / safeDistance;
     final expectedGain = positionSize * targetDistance;
+<<<<<<< ours
     final rewardRisk = riskAmount == 0 ? 0 : expectedGain / riskAmount;
+=======
+    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
+>>>>>>> theirs
 
     return RiskResult(
       riskAmount: riskAmount,

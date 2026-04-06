@@ -27,7 +27,11 @@ class DashboardScreen extends ConsumerWidget {
             children: [
               Expanded(
                 child: DropdownButtonFormField<TradingPair>(
+<<<<<<< ours
                   value: pair,
+=======
+                  initialValue: pair,
+>>>>>>> theirs
                   decoration: const InputDecoration(labelText: 'Asset'),
                   items: [
                     for (final item in availablePairs)
