@@ -1,79 +1,11 @@
-<<<<<<< ours
-<<<<<<< ours
-pluginManagement {
-<<<<<<< ours
-=======
-    def flutterSdkPath = {
-        def properties = new Properties()
-        file('local.properties').withInputStream { properties.load(it) }
-        def flutterSdkPath = properties.getProperty('flutter.sdk')
-        assert flutterSdkPath != null, 'flutter.sdk not set in local.properties'
-        return flutterSdkPath
-    }()
-
-    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
-
->>>>>>> theirs
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
-<<<<<<< ours
-rootProject.name = 'trading_app'
 include ':app'
-=======
-plugins {
-    id "dev.flutter.flutter-plugin-loader" version "1.0.0"
-    id "com.android.application" version "8.4.2" apply false
-    id "org.jetbrains.kotlin.android" version "1.9.24" apply false
-}
-
-include ":app"
->>>>>>> theirs
-=======
-=======
->>>>>>> theirs
-import java.util.Properties
-
-include ':app'
-
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
 def properties = new Properties()
-<<<<<<< ours
-
-assert localPropertiesFile.exists()
-localPropertiesFile.withReader("UTF-8") { reader ->
-    properties.load(reader)
-}
-
-def flutterSdkPath = properties.getProperty("flutter.sdk")
-assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
-apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
->>>>>>> theirs
-=======
 if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader("UTF-8") { reader ->
-        properties.load(reader)
-    }
+    localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
 }
-
-def flutterSdkPath = properties.getProperty("flutter.sdk")
-if (flutterSdkPath == null) {
-    flutterSdkPath = System.getenv("FLUTTER_ROOT")
-}
-def isWrapperTask = gradle.startParameter.taskNames.any { it.toLowerCase().contains("wrapper") }
-if (flutterSdkPath == null && !isWrapperTask) {
-    throw new GradleException("flutter.sdk not set in local.properties and FLUTTER_ROOT is not set.")
-}
+def flutterSdkPath = properties.getProperty("flutter.sdk") ?: System.getenv("FLUTTER_ROOT")
 if (flutterSdkPath != null) {
-    def appPluginLoader = new File(flutterSdkPath, "packages/flutter_tools/gradle/app_plugin_loader.gradle")
-    if (appPluginLoader.exists()) {
-        apply from: appPluginLoader.absolutePath
-    } else if (!isWrapperTask) {
-        throw new GradleException("Flutter app plugin loader not found at ${appPluginLoader.absolutePath}")
-    }
+    def loader = new File(flutterSdkPath, "packages/flutter_tools/gradle/app_plugin_loader.gradle")
+    if (loader.exists()) { apply from: loader.absolutePath }
 }
->>>>>>> theirs

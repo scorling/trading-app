@@ -1,8 +1,6 @@
 import '../models/risk_result.dart';
-
 class RiskCalculator {
   const RiskCalculator();
-
   RiskResult calculate({
     required double balance,
     required double riskPercent,
@@ -16,24 +14,7 @@ class RiskCalculator {
     final safeDistance = stopDistance <= 0 ? 0.0000001 : stopDistance;
     final positionSize = riskAmount / safeDistance;
     final expectedGain = positionSize * targetDistance;
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-    final rewardRisk = riskAmount == 0 ? 0 : expectedGain / riskAmount;
-=======
-    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
->>>>>>> theirs
-=======
-    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
->>>>>>> theirs
-=======
-    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
->>>>>>> theirs
-=======
-    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
->>>>>>> theirs
-
+    final rewardRisk = riskAmount == 0 ? 0.0 : (expectedGain / riskAmount).toDouble();
     return RiskResult(
       riskAmount: riskAmount,
       positionSize: positionSize,
