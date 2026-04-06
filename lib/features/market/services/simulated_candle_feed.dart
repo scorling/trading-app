@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 <<<<<<< ours
+<<<<<<< ours
 import '../models/candle.dart';
 
 class SimulatedCandleFeed {
@@ -9,6 +10,8 @@ class SimulatedCandleFeed {
 
   final double seedPrice;
 =======
+=======
+>>>>>>> theirs
 import '../models/chart_timeframe.dart';
 import '../models/candle.dart';
 
@@ -20,6 +23,9 @@ class SimulatedCandleFeed {
 
   final double seedPrice;
   final ChartTimeframe timeframe;
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
   final _rnd = Random();
 
@@ -29,6 +35,7 @@ class SimulatedCandleFeed {
     return List.generate(count, (i) {
       final open = price;
 <<<<<<< ours
+<<<<<<< ours
       final drift = 1 + (_rnd.nextDouble() - 0.5) * 0.002;
       final close = open * drift;
       final high = max(open, close) * (1 + _rnd.nextDouble() * 0.0015);
@@ -37,6 +44,8 @@ class SimulatedCandleFeed {
       return Candle(
         time: now.subtract(Duration(minutes: count - i)),
 =======
+=======
+>>>>>>> theirs
       final drift = 1 + (_rnd.nextDouble() - 0.5) * timeframe.volatilityScale;
       final close = open * drift;
       final spread = timeframe.volatilityScale * 0.75;
@@ -45,6 +54,9 @@ class SimulatedCandleFeed {
       price = close;
       return Candle(
         time: now.subtract(timeframe.candleDuration * (count - i)),
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
         open: open,
         high: high,
@@ -58,6 +70,7 @@ class SimulatedCandleFeed {
     var last = candles.isNotEmpty ? candles.last.close : seedPrice;
     while (true) {
 <<<<<<< ours
+<<<<<<< ours
       await Future<void>.delayed(const Duration(seconds: 1));
       final open = last;
       final close = open * (1 + (_rnd.nextDouble() - 0.5) * 0.002);
@@ -65,6 +78,8 @@ class SimulatedCandleFeed {
       final low = min(open, close) * (1 - _rnd.nextDouble() * 0.0016);
       final candle = Candle(time: DateTime.now(), open: open, high: high, low: low, close: close);
 =======
+=======
+>>>>>>> theirs
       await Future<void>.delayed(timeframe.simulationInterval);
       final open = last;
       final close = open * (1 + (_rnd.nextDouble() - 0.5) * timeframe.volatilityScale);
@@ -78,6 +93,9 @@ class SimulatedCandleFeed {
         low: low,
         close: close,
       );
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
       last = close;
       yield candle;

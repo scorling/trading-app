@@ -1,4 +1,5 @@
 <<<<<<< ours
+<<<<<<< ours
 plugins {
 <<<<<<< ours
     id 'com.android.application'
@@ -24,6 +25,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 =======
+=======
+>>>>>>> theirs
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -34,7 +37,14 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
+<<<<<<< ours
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+=======
+    flutterRoot = System.getenv('FLUTTER_ROOT')
+}
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define flutter.sdk in local.properties or FLUTTER_ROOT env var.")
+>>>>>>> theirs
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -61,6 +71,9 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     }
 
@@ -72,6 +85,7 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+<<<<<<< ours
 <<<<<<< ours
 }
 
@@ -110,10 +124,15 @@ android {
         release {
             signingConfig = signingConfigs.debug
 =======
+=======
+>>>>>>> theirs
 
     buildTypes {
         release {
             signingConfig signingConfigs.debug
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
         }
     }
@@ -121,7 +140,11 @@ android {
 
 flutter {
 <<<<<<< ours
+<<<<<<< ours
     source = "../.."
+>>>>>>> theirs
+=======
+    source '../..'
 >>>>>>> theirs
 =======
     source '../..'

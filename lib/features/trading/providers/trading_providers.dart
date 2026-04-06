@@ -9,7 +9,10 @@ final balanceProvider = StateProvider<double>((ref) => 10000);
 final isLiveModeProvider = StateProvider<bool>((ref) => false);
 
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 class ChartLineNotifier extends Notifier<List<double>> {
   @override
   List<double> build() => [];
@@ -24,6 +27,9 @@ class ChartLineNotifier extends Notifier<List<double>> {
   }
 }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 class PositionNotifier extends Notifier<List<Position>> {
   @override
@@ -54,6 +60,10 @@ class PositionNotifier extends Notifier<List<Position>> {
 
 final positionProvider = NotifierProvider<PositionNotifier, List<Position>>(PositionNotifier.new);
 <<<<<<< ours
+<<<<<<< ours
+=======
+final chartLinesProvider = NotifierProvider<ChartLineNotifier, List<double>>(ChartLineNotifier.new);
+>>>>>>> theirs
 =======
 final chartLinesProvider = NotifierProvider<ChartLineNotifier, List<double>>(ChartLineNotifier.new);
 >>>>>>> theirs

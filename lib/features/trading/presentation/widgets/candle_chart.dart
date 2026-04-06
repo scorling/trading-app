@@ -1,4 +1,9 @@
 <<<<<<< ours
+<<<<<<< ours
+=======
+import 'dart:math';
+
+>>>>>>> theirs
 =======
 import 'dart:math';
 
@@ -9,6 +14,7 @@ import 'package:flutter/material.dart';
 import '../../../market/models/candle.dart';
 import '../../../../core/theme/app_theme.dart';
 
+<<<<<<< ours
 <<<<<<< ours
 class CandleChart extends StatelessWidget {
   const CandleChart({super.key, required this.candles});
@@ -51,6 +57,8 @@ class CandleChart extends StatelessWidget {
         ],
       ),
 =======
+=======
+>>>>>>> theirs
 class CandleChart extends StatefulWidget {
   const CandleChart({
     super.key,
@@ -192,6 +200,9 @@ class _CandleChartState extends State<CandleChart> {
           ),
         );
       },
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     );
   }

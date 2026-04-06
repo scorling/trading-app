@@ -31,6 +31,16 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+<<<<<<< ours
+=======
+      - name: Validate no unresolved merge markers
+        run: |
+          if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' .; then
+            echo "Unresolved merge markers found."
+            exit 1
+          fi
+
+>>>>>>> theirs
       - name: Analyze project
         run: flutter analyze
 

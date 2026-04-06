@@ -3,6 +3,10 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 <<<<<<< ours
+<<<<<<< ours
+=======
+import '../models/chart_timeframe.dart';
+>>>>>>> theirs
 =======
 import '../models/chart_timeframe.dart';
 >>>>>>> theirs
@@ -17,6 +21,10 @@ final exchangeServiceProvider = Provider<SimulatedExchangeService>((ref) {
 
 final selectedPairProvider = StateProvider<TradingPair>((ref) => availablePairs.first);
 <<<<<<< ours
+<<<<<<< ours
+=======
+final selectedTimeframeProvider = StateProvider<ChartTimeframe>((ref) => ChartTimeframe.m1);
+>>>>>>> theirs
 =======
 final selectedTimeframeProvider = StateProvider<ChartTimeframe>((ref) => ChartTimeframe.m1);
 >>>>>>> theirs
@@ -34,13 +42,19 @@ class CandleNotifier extends AutoDisposeNotifier<List<Candle>> {
   List<Candle> build() {
     final pair = ref.watch(selectedPairProvider);
 <<<<<<< ours
+<<<<<<< ours
     final feed = SimulatedCandleFeed(pair.basePrice);
 =======
+=======
+>>>>>>> theirs
     final timeframe = ref.watch(selectedTimeframeProvider);
     final feed = SimulatedCandleFeed(
       seedPrice: pair.basePrice,
       timeframe: timeframe,
     );
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     final initial = feed.bootstrap();
     _sub?.cancel();

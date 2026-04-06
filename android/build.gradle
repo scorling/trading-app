@@ -1,5 +1,8 @@
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 buildscript {
@@ -11,7 +14,11 @@ buildscript {
 
     dependencies {
 <<<<<<< ours
+<<<<<<< ours
         classpath 'com.android.tools.build:gradle:8.5.2'
+=======
+        classpath 'com.android.tools.build:gradle:8.4.2'
+>>>>>>> theirs
 =======
         classpath 'com.android.tools.build:gradle:8.4.2'
 >>>>>>> theirs
@@ -20,6 +27,9 @@ buildscript {
 }
 
 <<<<<<< ours
+<<<<<<< ours
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======

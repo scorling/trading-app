@@ -4,6 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/metric_tile.dart';
 <<<<<<< ours
+<<<<<<< ours
+=======
+import '../../market/models/chart_timeframe.dart';
+>>>>>>> theirs
 =======
 import '../../market/models/chart_timeframe.dart';
 >>>>>>> theirs
@@ -23,6 +27,11 @@ class DashboardScreen extends ConsumerWidget {
     final ticker = ref.watch(tickerStreamProvider).value ?? pair.basePrice;
     final candles = ref.watch(candleProvider);
 <<<<<<< ours
+<<<<<<< ours
+=======
+    final timeframe = ref.watch(selectedTimeframeProvider);
+    final lines = ref.watch(chartLinesProvider);
+>>>>>>> theirs
 =======
     final timeframe = ref.watch(selectedTimeframeProvider);
     final lines = ref.watch(chartLinesProvider);
@@ -39,7 +48,11 @@ class DashboardScreen extends ConsumerWidget {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
                   value: pair,
+=======
+                  initialValue: pair,
+>>>>>>> theirs
 =======
                   initialValue: pair,
 >>>>>>> theirs
@@ -88,8 +101,11 @@ class DashboardScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 12),
 <<<<<<< ours
+<<<<<<< ours
                 SizedBox(height: 260, child: CandleChart(candles: candles)),
 =======
+=======
+>>>>>>> theirs
                 SizedBox(
                   height: 36,
                   child: ListView.separated(
@@ -127,6 +143,9 @@ class DashboardScreen extends ConsumerWidget {
                     onMoveLine: (index, price) => ref.read(chartLinesProvider.notifier).updateAt(index, price),
                   ),
                 ),
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
               ],
             ),

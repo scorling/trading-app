@@ -19,7 +19,11 @@ class RiskCalculator {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
     final rewardRisk = riskAmount == 0 ? 0 : expectedGain / riskAmount;
+=======
+    final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
+>>>>>>> theirs
 =======
     final rewardRisk = (riskAmount == 0 ? 0 : expectedGain / riskAmount).toDouble();
 >>>>>>> theirs
