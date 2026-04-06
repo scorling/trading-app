@@ -28,7 +28,11 @@ class DashboardScreen extends ConsumerWidget {
               Expanded(
                 child: DropdownButtonFormField<TradingPair>(
 <<<<<<< ours
+<<<<<<< ours
                   value: pair,
+=======
+                  initialValue: pair,
+>>>>>>> theirs
 =======
                   initialValue: pair,
 >>>>>>> theirs
